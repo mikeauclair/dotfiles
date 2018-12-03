@@ -27,7 +27,28 @@ alias gc='git commit -v'
 alias gco='git checkout'
 alias gp='git push'
 
-alias xemacs="command emacs $1 </dev/null &>/dev/null &"
+function abspath() {
+    # generate absolute path from relative path
+    # $1     : relative filename
+    # return : absolute path
+    # From http://stackoverflow.com/a/23002317/514210
+    if [[ -d "$1" ]]; then
+        # dir
+        (cd "$1"; pwd)
+    elif [[ -f "$1" ]]; then
+        # file
+        if [[ $1 == */* ]]; then
+            echo "$(cd "${1%/*}"; pwd)/${1##*/}"
+        else
+            echo "$(pwd)/$1"
+        fi
+    fi
+}
+
+function xemacs {
+  emacs $(abspath $1) </dev/null &>/dev/null &
+}
+
 alias emacs="emacs -nw"
 export EDITOR='emacs '
 alias diffmerge='/Applications/DiffMerge.app/Contents/Resources/diffmerge.sh'
