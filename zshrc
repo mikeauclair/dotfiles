@@ -1,9 +1,6 @@
 ZDOTDIR="$HOME/.dotfiles"
-ZSH_THEME="mikeauclair"
 DISABLE_AUTO_UPDATE="true"
 DISABLE_LS_COLORS="true"
-
-plugins=(git mikeauclair)
 
 export PATH="/usr/local/bin:$HOME/bin:$PATH"
 
