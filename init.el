@@ -105,10 +105,6 @@ Version 2015-06-10"
 (global-undo-tree-mode)
 (load-theme 'zenburn t)
 
-
-
-
-
 ;; Key bindings
 
 (global-set-key (kbd "M-x") #'helm-M-x)
