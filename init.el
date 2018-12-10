@@ -113,15 +113,14 @@ Version 2015-06-10"
 (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
 (global-set-key (kbd "C-x C-f") #'helm-find-files)
 
-(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
 (global-set-key (kbd "<home>") 'move-beginning-of-line)
 (global-set-key (kbd "<end>") 'move-end-of-line)
-(global-set-key (kbd "C-S-f") 'helm-projectile-ag)
-(global-set-key [(super shift f)] 'helm-projectile-find-file)
-(global-set-key [(meta shift up)]  'move-line-up)
-(global-set-key [(meta shift down)]  'move-line-down)
+(global-set-key (kbd "C-F") 'helm-projectile-ag)
+(global-set-key (kbd "M-F") 'helm-projectile-find-file)
+(global-set-key [(meta up)]  'move-line-up)
+(global-set-key [(meta down)]  'move-line-down)
 
 ;; Ruby
 
