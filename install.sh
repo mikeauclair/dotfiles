@@ -1,5 +1,4 @@
 #!/usr/bin/env zsh
-setopt EXTENDED_GLOB
 mkdir -p "${HOME}/.emacs.d"
 ln -s "${HOME}/.dotfiles/init.el" "${HOME}/.emacs.d/init.el"
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
