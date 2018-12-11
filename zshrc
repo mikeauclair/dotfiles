@@ -53,3 +53,4 @@ alias reload=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
 # add plugin's bin directory to path
 export GOPATH="$HOME/code/golang"
 
+unalias o
