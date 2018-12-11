@@ -119,8 +119,8 @@ Version 2015-06-10"
 (global-set-key (kbd "<end>") 'move-end-of-line)
 (global-set-key (kbd "C-F") 'helm-projectile-ag)
 (global-set-key (kbd "M-F") 'helm-projectile-find-file)
-(global-set-key [(meta up)]  'move-line-up)
-(global-set-key [(meta down)]  'move-line-down)
+(global-set-key (kbd "<f1>")  'move-line-up)
+(global-set-key (kbd "<f2>")  'move-line-down)
 
 ;; Ruby
 
