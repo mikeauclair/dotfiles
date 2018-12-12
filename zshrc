@@ -1,11 +1,10 @@
-ZDOTDIR="$HOME/.dotfiles"
 DISABLE_AUTO_UPDATE="true"
 DISABLE_LS_COLORS="true"
 
 export PATH="/usr/local/bin:$HOME/bin:$PATH"
 
-if [ -f "$HOME/.dotfiles/.zprezto/init.zsh" ]; then
-    source "$HOME/.dotfiles/.zprezto/init.zsh"
+if [ -f "$HOME/.zprezto/init.zsh" ]; then
+    source "$HOME/.zprezto/init.zsh"
 fi
 
 c() { cd ~/code/$1; }
