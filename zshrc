@@ -50,6 +50,7 @@ export EDITOR='emacs '
 alias diffmerge='/Applications/DiffMerge.app/Contents/Resources/diffmerge.sh'
 alias reload=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
 # add plugin's bin directory to path
-export GOPATH="$HOME/code/golang"
+# export GOPATH="$HOME/code/golang"
 
 unalias o
+export TERM=xterm-256color

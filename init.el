@@ -22,6 +22,7 @@
 (straight-use-package 'zenburn-theme)
 (straight-use-package 'typescript-mode)
 (straight-use-package 'undo-tree)
+(straight-use-package 'go-mode)
 
 ;; Requires for ill-behaved packages
 
@@ -121,6 +122,7 @@ Version 2015-06-10"
 (global-set-key (kbd "M-F") 'helm-projectile-find-file)
 (global-set-key (kbd "<f1>")  'move-line-up)
 (global-set-key (kbd "<f2>")  'move-line-down)
+(global-set-key (kbd "￿") 'undo-tree-redo)
 
 ;; Ruby
 
