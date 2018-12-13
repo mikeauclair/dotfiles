@@ -158,6 +158,14 @@ Version 2015-06-10"
 (setq js3-indent-on-enter-key t)   ; fix indenting before moving on
 (setq typescript-indent-level 2)
 (setq js-indent-level 2)
+(add-to-list 'auto-mode-alist '("\\.tsx$" . web-mode))
+
+;; Go
+
+(defun custom-go-mode-hook ()
+  (setq tab-width 2 indent-tabs-mode 1)
+  (add-hook 'before-save-hook 'gofmt-before-save))
+(add-hook 'go-mode-hook 'custom-go-mode-hook)
 
 ;; Misc
 
