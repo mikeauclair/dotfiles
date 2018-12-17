@@ -23,6 +23,7 @@
 (straight-use-package 'typescript-mode)
 (straight-use-package 'undo-tree)
 (straight-use-package 'go-mode)
+(straight-use-package 'protobuf-mode)
 
 ;; Requires for ill-behaved packages
 
@@ -164,7 +165,9 @@ Version 2015-06-10"
 
 (defun custom-go-mode-hook ()
   (setq tab-width 2 indent-tabs-mode 1)
-  (add-hook 'before-save-hook 'gofmt-before-save))
+  (add-hook 'before-save-hook 'gofmt-before-save)
+  (setq gofmt-command "goimports")
+  (setq gofmt-args (list "-local" "github.com/DevotedHealth")))
 (add-hook 'go-mode-hook 'custom-go-mode-hook)
 
 ;; Misc
