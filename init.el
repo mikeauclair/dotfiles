@@ -24,6 +24,7 @@
 (straight-use-package 'undo-tree)
 (straight-use-package 'go-mode)
 (straight-use-package 'protobuf-mode)
+(straight-use-package 'magit)
 
 ;; Requires for ill-behaved packages
 
