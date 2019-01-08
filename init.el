@@ -25,6 +25,7 @@
 (straight-use-package 'go-mode)
 (straight-use-package 'protobuf-mode)
 (straight-use-package 'magit)
+(straight-use-package 'flycheck-typescript-tslint)
 
 ;; Requires for ill-behaved packages
 
@@ -167,6 +168,21 @@ Version 2015-06-10"
 
 (eval-after-load 'flycheck
   '(add-hook 'flycheck-mode-hook #'flycheck-typescript-tslint-setup))
+
+(defun setup-tide-mode ()
+  (interactive)
+  (tide-setup)
+  (flycheck-mode +1)
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))
+  (eldoc-mode +1)
+  (tide-hl-identifier-mode +1)
+  (setq indent-tabs-mode nil)
+  (setq tab-width 2)
+  (setq tab-stop-list (quote (2 4 6 8 10 12 14 16 18 20 22 24 26 28 30)))
+  (setq-local web-mode-markup-indent-offset 2) ; web-mode, html tag in html file
+  (setq-local web-mode-css-indent-offset 2) ; web-mode, css in html file
+  (setq-local web-mode-code-indent-offset 2) ; web-mode, js code in html file
+)
 
 (add-hook 'web-mode-hook
           (lambda ()
