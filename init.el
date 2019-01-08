@@ -186,6 +186,7 @@ Version 2015-06-10"
               (setup-tide-mode)
 			)
 		  )
+	  )
 
 
 (if (getenv "CORE")
