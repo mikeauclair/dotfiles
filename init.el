@@ -194,7 +194,7 @@ Version 2015-06-10"
 )
 
 (if (getenv "CORE")
-    (
+    (progn
        ;; enable typescript-tslint checker
 
        (flycheck-add-mode 'typescript-tslint 'web-mode)
@@ -204,8 +204,7 @@ Version 2015-06-10"
        (custom-set-variables
        '(flycheck-typescript-tslint-config (concat (getenv "CORE") "/frontend/admin/tslint.json")))
        (add-hook 'after-init-hook #'global-flycheck-mode)
-     )
-    )
+	    )
 )
 
 ;; Go
