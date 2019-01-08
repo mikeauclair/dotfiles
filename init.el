@@ -27,6 +27,7 @@
 (straight-use-package 'magit)
 (straight-use-package 'flycheck)
 (straight-use-package 'tide)
+(straight-use-package 'company)
 
 ;; Requires for ill-behaved packages
 
@@ -99,6 +100,7 @@ Version 2015-06-10"
       `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
+(setq company-tooltip-align-annotations t)
 
 ;; Global modes
 (helm-mode 1)
@@ -169,6 +171,7 @@ Version 2015-06-10"
   (interactive)
   (tide-setup)
   (flycheck-mode +1)
+  (company-mode +1)
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
   (eldoc-mode +1)
   (tide-hl-identifier-mode +1)
@@ -206,6 +209,7 @@ Version 2015-06-10"
 
 (defun custom-go-mode-hook ()
   (setq tab-width 2 indent-tabs-mode 1)
+  (company-mode +1)
   (add-hook 'before-save-hook 'gofmt-before-save)
   (setq gofmt-command "goimports")
   (setq gofmt-args (list "-local" "github.com/DevotedHealth")))
