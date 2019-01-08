@@ -107,6 +107,7 @@ Version 2015-06-10"
 (tool-bar-mode -1)
 (global-undo-tree-mode)
 (load-theme 'zenburn t)
+(column-number-mode 1)
 
 ;; Key bindings
 
@@ -162,6 +163,34 @@ Version 2015-06-10"
 (setq js-indent-level 2)
 (add-to-list 'auto-mode-alist '("\\.tsx$" . web-mode))
 
+(load-library "flycheck-typescript-tslint")
+
+(eval-after-load 'flycheck
+  '(add-hook 'flycheck-mode-hook #'flycheck-typescript-tslint-setup))
+
+(add-hook 'web-mode-hook
+          (lambda ()
+            (when (string-equal "tsx" (file-name-extension buffer-file-name))
+              (setup-tide-mode)
+			)
+		  )
+)
+
+(if (getenv "CORE")
+    (
+       ;; enable typescript-tslint checker
+
+       (flycheck-add-mode 'typescript-tslint 'web-mode)
+
+       (custom-set-variables
+       '(flycheck-typescript-tslint-executable (concat (getenv "CORE") "/frontend/admin/node_modules/tslint/bin/tslint")))
+       (custom-set-variables
+       '(flycheck-typescript-tslint-config (concat (getenv "CORE") "/frontend/admin/tslint.json")))
+       (add-hook 'after-init-hook #'global-flycheck-mode)
+     )
+    )
+)
+
 ;; Go
 
 (defun custom-go-mode-hook ()
@@ -170,6 +199,13 @@ Version 2015-06-10"
   (setq gofmt-command "goimports")
   (setq gofmt-args (list "-local" "github.com/DevotedHealth")))
 (add-hook 'go-mode-hook 'custom-go-mode-hook)
+
+;; Proto
+
+(require 'protobuf-mode)
+(defun setup-proto-mode ()
+  (setq indent-tabs-mode nil))
+(add-hook 'protobuf-mode-hook #'setup-proto-mode)
 
 ;; Misc
 
