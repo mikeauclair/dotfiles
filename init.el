@@ -26,6 +26,7 @@
 (straight-use-package 'protobuf-mode)
 (straight-use-package 'magit)
 (straight-use-package 'flycheck-typescript-tslint)
+(straight-use-package 'tide-mode)
 
 ;; Requires for ill-behaved packages
 
