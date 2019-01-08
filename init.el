@@ -192,8 +192,6 @@ Version 2015-06-10"
     (progn
        ;; enable typescript-tslint checker
 
-       (flycheck-add-mode 'typescript-tslint 'web-mode)
-
        (custom-set-variables
        '(flycheck-typescript-tslint-executable (concat (getenv "CORE") "/frontend/admin/node_modules/tslint/bin/tslint")))
        (custom-set-variables
