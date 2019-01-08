@@ -165,11 +165,6 @@ Version 2015-06-10"
 (setq js-indent-level 2)
 (add-to-list 'auto-mode-alist '("\\.tsx$" . web-mode))
 
-(load-library "flycheck-typescript-tslint")
-
-(eval-after-load 'flycheck
-  '(add-hook 'flycheck-mode-hook #'flycheck-typescript-tslint-setup))
-
 (defun setup-tide-mode ()
   (interactive)
   (tide-setup)
