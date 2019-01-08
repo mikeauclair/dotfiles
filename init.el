@@ -186,12 +186,13 @@ Version 2015-06-10"
               (setup-tide-mode)
 			)
 		  )
-)
+
 
 (if (getenv "CORE")
     (progn
        ;; enable typescript-tslint checker
-
+	(add-hook 'flycheck-mode-hook
+        (lambda () (flycheck-add-mode 'typescript-tslint 'web-mode)))
        (custom-set-variables
        '(flycheck-typescript-tslint-executable (concat (getenv "CORE") "/frontend/admin/node_modules/tslint/bin/tslint")))
        (custom-set-variables
