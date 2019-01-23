@@ -28,6 +28,7 @@
 (straight-use-package 'flycheck)
 (straight-use-package 'tide)
 (straight-use-package 'company)
+(straight-use-package 'go-guru)
 
 ;; Requires for ill-behaved packages
 
@@ -35,7 +36,7 @@
 (require 'helm-projectile)
 (require 'web-mode)
 (require 'ws-butler)
-
+(require 'go-guru)
 ;; Helper funs
 
 (defun xah-cut-line-or-region ()
