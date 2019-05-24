@@ -28,6 +28,7 @@
 (straight-use-package 'flycheck)
 (straight-use-package 'tide)
 (straight-use-package 'company)
+(straight-use-package 'company-go)
 (straight-use-package 'go-guru)
 
 ;; Requires for ill-behaved packages
@@ -209,6 +210,7 @@ Version 2015-06-10"
 
 (defun custom-go-mode-hook ()
   (setq tab-width 2 indent-tabs-mode 1)
+  (set (make-local-variable 'company-backends) '(company-go))
   (company-mode +1)
   (add-hook 'before-save-hook 'gofmt-before-save)
   (setq gofmt-command "goimports")
