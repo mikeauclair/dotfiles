@@ -92,7 +92,7 @@ Version 2015-06-10"
 (when (string= system-type "darwin")       
   (setq dired-use-ls-dired nil))
 (setq projectile-globally-ignored-directories
-      (append '(".git" "node_modules" "bower_components") projectile-globally-ignored-directories))
+      (append '(".git" "node_modules" "bower_components" "dist") projectile-globally-ignored-directories))
 (setq helm-split-window-in-side-p t)
 (setq-default indent-tabs-mode nil)
 (setq ring-bell-function 'ignore)
