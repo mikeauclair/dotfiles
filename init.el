@@ -27,9 +27,11 @@
 (straight-use-package 'magit)
 (straight-use-package 'flycheck)
 (straight-use-package 'tide)
+(straight-use-package 'lsp-mode)
+(straight-use-package 'lsp-ui)
 (straight-use-package 'company)
 (straight-use-package 'company-go)
-(straight-use-package 'go-guru)
+;; (straight-use-package 'go-guru)
 
 ;; Requires for ill-behaved packages
 
@@ -37,7 +39,9 @@
 (require 'helm-projectile)
 (require 'web-mode)
 (require 'ws-butler)
-(require 'go-guru)
+(require 'lsp-mode)
+(require 'lsp-ui)
+;; (require 'go-guru)
 ;; Helper funs
 
 (defun xah-cut-line-or-region ()
@@ -102,7 +106,6 @@ Version 2015-06-10"
       `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
-(setq company-tooltip-align-annotations t)
 
 ;; Global modes
 (helm-mode 1)
@@ -210,12 +213,12 @@ Version 2015-06-10"
 
 (defun custom-go-mode-hook ()
   (setq tab-width 2 indent-tabs-mode 1)
-  (set (make-local-variable 'company-backends) '(company-go))
-  (company-mode +1)
+  ;;(set (make-local-variable 'company-backends) '(company-go))
   (add-hook 'before-save-hook 'gofmt-before-save)
   (setq gofmt-command "goimports")
   (setq gofmt-args (list "-local" "github.com/DevotedHealth")))
 (add-hook 'go-mode-hook 'custom-go-mode-hook)
+(add-hook 'go-mode-hook #'lsp-deferred)
 
 ;; Proto
 
