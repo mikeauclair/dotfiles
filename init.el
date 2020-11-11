@@ -216,7 +216,13 @@ Version 2015-06-10"
   ;;(set (make-local-variable 'company-backends) '(company-go))
   (add-hook 'before-save-hook 'gofmt-before-save)
   (setq gofmt-command "goimports")
-  (setq gofmt-args (list "-local" "github.com/DevotedHealth")))
+  (setq gofmt-args (list "-local" "github.com/DevotedHealth"))
+  ;; disable inline documentation
+  (setq lsp-ui-sideline-enable nil)
+  ;; disable showing docs on hover at the top of the window
+  (setq lsp-ui-doc-enable nil)
+  (setq lsp-ui-imenu-enable t)
+  (setq lsp-ui-imenu-kind-position 'top))
 (add-hook 'go-mode-hook 'custom-go-mode-hook)
 (add-hook 'go-mode-hook #'lsp-deferred)
 
