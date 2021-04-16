@@ -45,7 +45,12 @@ function xemacs {
   emacs $(abspath $1) </dev/null &>/dev/null &
 }
 
-alias emacs="emacs -nw"
+if [ -f "/snap/bin/emacs" ]; then
+    alias emacs="/snap/bin/emacs"
+else
+    alias emacs="emacs -nw"
+fi
+
 export EDITOR='emacs '
 alias diffmerge='/Applications/DiffMerge.app/Contents/Resources/diffmerge.sh'
 alias reload=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"

@@ -28,9 +28,9 @@
 (straight-use-package 'flycheck)
 (straight-use-package 'tide)
 (straight-use-package 'lsp-mode)
-(straight-use-package 'lsp-ui)
+;; (straight-use-package 'lsp-ui)
 (straight-use-package 'company)
-(straight-use-package 'company-go)
+;; (straight-use-package 'company-go)
 ;; (straight-use-package 'go-guru)
 
 ;; Requires for ill-behaved packages
@@ -40,7 +40,6 @@
 (require 'web-mode)
 (require 'ws-butler)
 (require 'lsp-mode)
-(require 'lsp-ui)
 ;; (require 'go-guru)
 ;; Helper funs
 
@@ -213,7 +212,6 @@ Version 2015-06-10"
 
 (defun custom-go-mode-hook ()
   (setq tab-width 2 indent-tabs-mode 1)
-  ;;(set (make-local-variable 'company-backends) '(company-go))
   (add-hook 'before-save-hook 'gofmt-before-save)
   (setq gofmt-command "goimports")
   (setq gofmt-args (list "-local" "github.com/DevotedHealth"))
@@ -221,7 +219,7 @@ Version 2015-06-10"
   (setq lsp-ui-sideline-enable nil)
   ;; disable showing docs on hover at the top of the window
   (setq lsp-ui-doc-enable nil)
-  (setq lsp-ui-imenu-enable t)
+  (setq lsp-ui-imenu-enable nil)
   (setq lsp-ui-imenu-kind-position 'top))
 (add-hook 'go-mode-hook 'custom-go-mode-hook)
 (add-hook 'go-mode-hook #'lsp-deferred)
@@ -239,3 +237,11 @@ Version 2015-06-10"
 (setq web-mode-css-indent-offset 2)
 (setq web-mode-code-indent-offset 2)
 (setq web-mode-script-padding 2)
+(setq read-process-output-max (* 1024 1024)) ;; 1mb
+(setq lsp-modeline-code-actions-enable nil)
+(setq lsp-modeline-diagnostics-enable nil)
+(setq lsp-headerline-breadcrumb-enable nil)
+(setq gc-cons-threshold 500000000)
+(setq lsp-enable-file-watchers nil)
+(setq lsp-enable-links nil)
+(setq lsp-idle-delay 1.25)
